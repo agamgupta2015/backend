@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const {model,scheme} = mongoose;
+const {model,Schema} = mongoose;
 
 const gallsch = new Schema(
     {
@@ -12,6 +12,6 @@ const gallsch = new Schema(
         imageUrl: { type: String, required: true },
     },
     {timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" }}
-)
+);
 
-model.exports = model("gallery", gallerySchema);
+module.exports = model("gallery", gallsch);
