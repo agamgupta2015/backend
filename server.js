@@ -1,13 +1,18 @@
+const dotenv = require("dotenv");
+dotenv.config();
 const express = require("express");
 const app = express();
+const Database = require("./config/db");
 
-const port = 3000;
-const host = "localhost";
+const PORT = process.env.PORT || 3000;
+const HOST = process.env.host || "localhost";
 
-app.get("/",(req,res)=>{
-    res.send("hello world")
+Database();
+
+app.get("/api/health",(req,res)=>{
+    res.send("Server is Runing fine")
 })
 
-app.listen(port, () => {
-    console.log(` Shuffle app listening at http://${host}:${port}`);
+app.listen(PORT, () => {
+    console.log(` Shuffle app listening at http://${HOST}:${PORT}`);
 });
